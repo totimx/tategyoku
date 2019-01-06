@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<IniFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<!-- ■ディレクトリ設定 -->
+  <DIRS>
+    <DataRoot>D:\files\tategyoku\Data</DataRoot>
+    <LogRoot>D:\files\tategyoku\Logs</LogRoot>
+    <UserPref>D:\files\tategyoku\UserPref</UserPref>
+  </DIRS>
+</IniFile>

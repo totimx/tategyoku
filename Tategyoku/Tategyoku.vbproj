@@ -47,7 +47,13 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Tategyoku.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="KComLib">
+      <HintPath>..\..\..\cpd\KComLib\KComLib\bin\Release\KComLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -60,6 +66,7 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
+    <Import Include="KComLib" />
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
@@ -73,13 +80,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="src\IniFile.vb" />
+    <Compile Include="src\Lib\FormatCheck.vb" />
+    <Compile Include="src\Lib\MiscUtil.vb" />
+    <Compile Include="src\Screen\MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="src\Screen\MainForm.Designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="src\DataObject\InputData.vb" />
+    <Compile Include="src\ModuleGConst.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -95,13 +107,34 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="src\Screen\UCInputList.Designer.vb">
+      <DependentUpon>UCInputList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="src\Screen\UCInputList.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Screen\UCConvDatToCsv.Designer.vb">
+      <DependentUpon>UCConvDatToCsv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="src\Screen\UCConvDatToCsv.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="src\Screen\MainForm.resx">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Screen\UCInputList.resx">
+      <DependentUpon>UCInputList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Screen\UCConvDatToCsv.resx">
+      <DependentUpon>UCConvDatToCsv.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +148,12 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\Calculate\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Tategyoku.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
